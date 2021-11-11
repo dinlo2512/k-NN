@@ -46,13 +46,9 @@ def findMostOccur(arr):
             ans = label
     return ans
 
-
 if __name__ == "__main__":
     trainSet, testSet = loadData("./Iris.csv")
-    numOfRightAnwser = 0
     for item in testSet:
         knn = kNearestNeighbor(trainSet, item, 5)
         answer = findMostOccur(knn)
-        numOfRightAnwser += item[-1] == answer
         print("label: {} -> predicted: {}".format(item[-1], answer))
-    print("Accuracy", numOfRightAnwser/len(testSet))
